@@ -1,0 +1,138 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+# JSCMiner
+JSCMiner: A Flexible and Fast Code Clone Detector for JavaScript Applications.
+
+----What the base project did?(XIAO: A Clone Detection Tool)
+
+Answer: The base project is code clone detector called XIAO. It detect code clones only in C/C++ languages. Whiling detection clones, it parse the source code hash the statements. The hasing values are indexed and  further used to detect clones.
+Features of XIAO
+1. High Tune-ability
+2. High Scalability
+3. High Compatibility
+4. High Exportability
+
+----What this project did?
+
+JSCMiner is a flexiable and fast code clone detector for JavaScript applications. It is able to detect various types of clone such as Type-1, Type-2 and Type-3. In the first step JSCMiner extracts the source codes from a directory of JavaScript applications. All the source files are extracted into user defined granularity level (e.g., function-level, block-level or file-level). Then the extracted code blocks are tokenized with the token frequency. For various types of clones, JSCMiner uses different approaches. For detecting Type-1 clones, it makes the hash value of those tokesn. For Type-2, it generates the parametric transfomration of those tokens. Finally for Type-3, it creates sub-block overlapping string of those tokens. Now based on the user choice, index has been created based on the transformation of those tokes. Next, comparison is perfomed among those tokens for detecting clones. Additionally, the detected clones are provided into the user defied format such as JSON, XML, or HTML.
+
+----If you were able to extend it, and if so - how?
+Answer:
+FEATURES OF JSCMINER
+a) Configurable
+JSCMiner allows users to easily set and tune tool-parameter values (e.g., maximum and minimum lines of code and tokens), to producewhat the users want. User can detect clones in various granularitysuch as file, function and block level. It enable users to effectivelycontrol the syntactic similarity between two code fragments of nearmismatch clone pair by setting the similarity threshold. Besides,users can also select the similarity function (e.g., Cosine, Jaccard,and Overlap similarity function) that they want to use for detectingnear mismatch clones.
+b)Explorable
+JSCMiner enables users to easily explore and manipulate thede-tected clones in various format. User can get clone report into theirdesired forms such as JSON, HTML or in XML. In real time clonedetection during development phase, user can instantly visualizethe detected clones in the editor. It helps users to quickly capture whether there is any difference between the two cloned code frag-ments, what kind of difference it is, how much difference there isand which type of clone it is.
+c)Compatible
+Since, JSCMiner is developed on top ofNode.jsframework, it iscompatible to any platform (Windows, Linux and Mac). Consideringthe purpose of usage, JSCMiner is developed in two forms such asCommand Line Interface (CLI) and an extension for Visual StudioCode (VSCode). The CIL of JSCMiner can be useful for mining interproject clones in large code repository. On the other hand, Theextension will be beneficial for instantly detecting clone duringsoftware development time.
+d)Scalable
+Scalability is one of the most desired feature of JSCMiner since itis the only code clone detector that is scalable to large JavaScriptcode repository. In the scalability testing experiments, JSCMinerscalabilty performace is compared with the state of the art tools(Simian, PMD, JSInspect and JSCD), it is found that JSCMiner suc-cessfully scales to 20MLOC on a standard workstation with 8 GBRAM and detect first three types of clones.
+e) Accuracy
+The accuracy of JSCMiner in detecting clones is very high compar-ing to other state of the art tools. It gave 100% recall in detectingboth Type-1 and Type-2 clones. For detecting Type-3 clones, it pro-duced 97% recall. Moreover, it gave overall 88% precision that isalso high enough with comparison of the other tools.
+
+----Details on data you worked on (if base paper dataset, provide link; if not, provide link if available in online, if you generated it - how you did)
+
+Answer: Here, manullay detected clones for a small application is used to test the performance of JSCMiner.Besides, a lager JavaScript application dataset is used to mining code clones using JSCMiner. The dataset consisting  of 9K JavaScript application 150'000 JavaScript files. The details of this dataset can be found in the following link.
+[http://www.srl.inf.ethz.ch/js150.php]
+
+----Detailed Instructions on how to use it
+
+Answer: To run JSCMiner, users just open a terminal in the desired directory of any JavaScript application. Then uses have to just type jscminer and hit enter. By doing this, a prompt menus is shown into the terminal. It asks some  question about the configuration setting of JSCMiner. Users can select the setting by using the arrow keys. The JSCMiner is run with those configuration. Finally, the detected clones are found in clone.json file.
+
+-- Tradeoffs you made while doing the project compared to the base project
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]:[console.log("สวัสดีชาวโลก!"); ][ { "id":0, "type":"Program", "children":[1] }, 
+    { "id":1, "type":"ExpressionStatement", "children":[2] }, 
+      { "id":2, "type":"CallExpression", "children":[3,6] }, 
+        { "id":3, "type":"MemberExpression", "children":[4,5] }, 
+          { "id":4, "type":"Identifier", "value":"console" }, 
+          { "id":5, "type":"Property", "value":"log" }, 
+        { "id":6, "type":"LiteralString", "value":"Hello World!" }, 0] ]
+  pull_request:
+    branches: [ main  ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+    End Notes
+1. https://blog.google/outreach-initiatives/diversity/racial-equity-update-nov-2021/
+2. https://cloud.google.com/blog/products/ai-machine-learning/celebrity-recognition-now-
+available-to-approved-media-entertainment-customers
+3. https://blog.google/technology/ai/crossword-puzzle-big-purpose/
+4. https://dl.acm.org/doi/10.1145/3411764.3445518
+5. https://arxiv.org/abs/2104.10350
+6. https://arxiv.org/pdf/2010.13561.pdf
+7. https://www.tensorflow.org/responsible_ai?hl=ro
+8. https://www.tensorflow.org/responsible_ai/privacy/guide?hl=ro
+9. https://knowyourdata.withgoogle.com/
+10. https://pair.withgoogle.com/guidebook/
+11. https://github.com/PAIR-code/lit/blob/main/RELEASE.md
+12. https://www.tensorflow.org/responsible_ai/fairness_indicators/guide
+13. https://ai.googleblog.com/2019/12/fairness-indicators-scalable.html
+14. https://www.tensorflow.org/responsible_ai/model_remediation
+15. https://ai.googleblog.com/2020/11/mitigating-unfair-bias-in-ml-models.html
+16. https://storage.googleapis.com/gresearch/translate-gender-challenge-sets/Data%20Card.pdf
+17. https://storage.googleapis.com/openimages/open_images_extended_miap/Open%20Images%20
+Extended%20-%20MIAP%20-%20Data%20Card.pdf
+18. https://pair-code.github.io/datacardsplaybook/
+19. https://facctconference.org/2021/acceptedcraftsessions.html#data_cards
+20. https://federated.withgoogle.com/
+21. https://ai.googleblog.com/2020/05/federated-analytics-collaborative-data.html
+22. https://arxiv.org/abs/2102.03448
+23. https://arxiv.org/abs/2006.16668
+24. https://arxiv.org/abs/2105.04663
+25. https://arxiv.org/abs/2109.13226
+26. https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-is-releasing-the-
+covid-19-public-forecasts
+27. https://ai.googleblog.com/2021/10/an-ml-based-framework-for-covid-19.html
+28. https://pair-code.github.io/what-if-tool/
+29. https://ai.googleblog.com/2021/08/a-dataset-exploration-case-study-with.html
+30. https://blog.google/outreach-initiatives/diversity/racial-equity-update-nov-2021/
+31. https://googleblog.blogspot.com/2011/02/finding-more-high-quality-sites-in.html
+32. https://www.blog.google/products/search/introducing-MUM/
+33. https://store.google.com/intl/en/discover/realtone/
+34. https://support.google.com/accessibility/android/answer/9031274?hl=en
+35. https://support.google.com/accessibility/android/answer/6151848?hl=en&ref_topic=6151842
+36. https://blog.google/outreach-initiatives/accessibility/project-relate/37. https://privacysandbox.com/
+38. https://blog.google/technology/ai/this-googlers-team-is-making-shopping-more-inclusive/
+39. https://ai.googleblog.com/2021/04/announcing-2021-research-scholar.html
+40. https://research.google/outreach/explore-csr/
+41. https://research.google/outreach/csrmp/
+42. https://blog.tensorflow.org/2021/06/2021-request-for-proposals-ml-faculty-awards.html
+43. https://www.tensorflow.org/responsible_ai
+44. https://cloud.google.com/responsible-ai
+45. https://ai.google/responsibilities/
+46. https://blog.google/technology/ai/partnering-nsf-human-ai-collaboration/
+47. https://portugal.googleblog.com/2021/07/2-milhoes-de-dolares-para-apoiar.html
+48. https://ai.google/responsibilities/public-policy-perspectives/
+49. https://www.iso.org/committee/6794475.html
+50. https://standards.ieee.org/initiatives/artificial-intelligence-systems/index.html
+51. https://ai.google/static/documents/ai-principles-2019-progress-update.pdf
+52. https://ai.google/static/documents/ai-principles-2020-progress-update.pdf
+53. https://ai.google/responsibilities2021 AI Principles /
