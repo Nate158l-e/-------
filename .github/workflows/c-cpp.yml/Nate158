@@ -1,0 +1,76 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-/a|using System;
+
+using System.Text.RegularExpressions;
+
+public class Example
+
+{
+
+    public static void Main()
+
+    {
+
+        string pattern = @"a|b";
+
+        string input = @"<p>Hello %DISPLAY_NAME%,<\p>
+
+<p>Follow this link to verify your email address.<\p>
+
+<p><a href='%LINK%'>%LINK%<\a><\p>
+
+<p>If you didn’t ask to verify this address, you can ignore this email.<\p>
+
+<p>Thanks,<\p>
+
+<p>Your %APP_NAME% team<\p>
+
+localhost	Default	
+
+famous-store-313715.firebaseapp.com	Default	
+
+famous-store-313715.web.app	Default	
+
+Nate158.com
+
+https:\\famous-store-313715.firebaseapp.com\__\auth\action";
+
+        RegexOptions options = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.IgnorePatternWhitespace | RegexOptions.CultureInvariant;
+
+        
+
+        foreach (Match m in Regex.Matches(input, pattern, options))
+
+        {
+
+            Console.WriteLine("'{0}' found at index {1}.", m.Value, m.Index);
+
+        }
+
+    }
+
+}
+
+b|}
+}|/ygmid
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: configure
+      run: ./configure
+    - name: make
+      run: make
+    - name: make check
+      run: make check
+    - name: make distcheck
+      run: make distcheck

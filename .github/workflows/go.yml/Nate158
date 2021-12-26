@@ -1,0 +1,1767 @@
+เนื้อเรื่อง: package main
+
+import (
+    "regexp"
+    "fmt"
+)
+
+func main() {
+    var re = regexp.MustCompile(`(?mi)a|using System;
+
+using System.Text.RegularExpressions;
+
+public class Example
+
+{
+
+    public static void Main()
+
+    {
+
+        string pattern = @"a|b";
+
+        string input = @"<p>Hello %DISPLAY_NAME%,<\p>
+
+<p>Follow this link to verify your email address.<\p>
+
+<p><a href='%LINK%'>%LINK%<\a><\p>
+
+<p>If you didn’t ask to verify this address, you can ignore this email.<\p>
+
+<p>Thanks,<\p>
+
+<p>Your %APP_NAME% team<\p>
+
+localhost	Default	
+
+famous-store-313715.firebaseapp.com	Default	
+
+famous-store-313715.web.app	Default	
+
+Nate158.com
+
+https:\\famous-store-313715.firebaseapp.com\__\auth\action";
+
+        RegexOptions options = RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.IgnorePatternWhitespace | RegexOptions.CultureInvariant;
+
+        
+
+        foreach (Match m in Regex.Matches(input, pattern, options))
+
+        {
+
+            Console.WriteLine("'{0}' found at index {1}.", m.Value, m.Index);
+
+        }
+
+    }
+
+}
+
+b|}
+}|`)
+    var str = `a or b, <?xml version='1.0' encoding='UTF-8'?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:blogger="http://schemas.google.com/blogger/2008" xmlns:georss="http://www.georss.org/georss" xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr="http://purl.org/syndication/thread/1.0" version="2.0"><channel><atom:id>tag:blogger.com,1999:blog-5990361588879225255</atom:id><lastBuildDate>Wed, 15 Dec 2021 22:59:43 +0000</lastBuildDate><category>emoji</category><category>CLDR</category><category>Unicode</category><category>ICU</category><category>AAC</category><category>beta</category><category>IUC</category><category>UTR #51</category><category>adopt-a-character</category><category>9.0</category><category>POD</category><category>UTS #51</category><category>Gold Sponsor</category><category>LDML</category><category>The Unicode Standard</category><category>alpha</category><category>conference</category><category>IVD</category><category>UTS #46</category><category>cover art</category><category>paperback</category><category>Arabic</category><category>Collation</category><category>Survey Tool</category><category>UTS #10</category><category>UTS #18</category><category>UTS #39</category><category>locales</category><category>10646</category><category>7.0</category><category>8.0</category><category>SEI</category><category>emoji 12.0</category><category>10.0</category><category>CLDR 26</category><category>CLDR 36</category><category>CLDR 37</category><category>CLDR 39</category><category>IDNA</category><category>Mayan</category><category>UAX #9</category><category>UTR #50</category><category>Unicode 12</category><category>Unicode 13.0</category><category>Unicode 14</category><category>bidi</category><category>board of directors</category><category>cldr 38</category><category>cldr 40</category><category>membership</category><category>regular expression</category><category>repertoire</category><category>security</category><category>vertical text</category><category>11.0</category><category>12.0</category><category>Bob Jung</category><category>CLDR 35</category><category>FFI</category><category>Greg Welch</category><category>Rust</category><category>UAX #29</category><category>UCA</category><category>UTS #37</category><category>Unicode 11</category><category>Unicode 12.1</category><category>Unicode 13</category><category>adoption</category><category>board</category><category>candidates</category><category>cldr 32</category><category>cldr 33</category><category>cldr 34</category><category>core specification</category><category>diversity</category><category>emoji 11.0</category><category>emoji 15.0</category><category>emoji 5.0</category><category>keynote</category><category>officers</category><category>properties</category><category>regex</category><category>reiwa</category><category>tutorial</category><category>13.0</category><category>14.0</category><category>Adobe-Japan1</category><category>Alolita Sharma</category><category>Anshuman Pandey</category><category>BCP47</category><category>Berkeley</category><category>CJK</category><category>CLDR 24</category><category>CLDR 30</category><category>Cherokee</category><category>ESC</category><category>Elymaic</category><category>Emoji2019</category><category>Extension G</category><category>Georgian</category><category>Google</category><category>Hanifi Rohingya</category><category>ICU 62</category><category>ICU4X</category><category>IUC 37</category><category>IUC 38</category><category>IUC 41</category><category>IUC 42</category><category>IUC 43</category><category>IUC 45</category><category>Japanese era</category><category>Kristi Lee</category><category>MSARG</category><category>Mark Davis</category><category>Microsoft</category><category>Moji_Joho</category><category>Nandinagari</category><category>PDAM</category><category>RGI</category><category>Salesforce</category><category>Teresa Marshall</category><category>UAX</category><category>UAX #31</category><category>UAX #38</category><category>UAX #44</category><category>UTC</category><category>UTR #36</category><category>UTR #53</category><category>Vint Cerf</category><category>World Emoji Day</category><category>award</category><category>bulldog</category><category>calendar</category><category>candidate</category><category>design</category><category>emoji 13.0</category><category>emoji 13.1</category><category>flags</category><category>frequency</category><category>grant</category><category>holiday</category><category>ideographic</category><category>schedule</category><category>script_extensions</category><category>unicode 14.0</category><category>2021</category><category>6.3</category><category>AMTRA</category><category>Adlam</category><category>Adobe</category><category>Andy Heninger</category><category>Anne Gundelfinger</category><category>Apple</category><category>Arika Okrent</category><category>Babel</category><category>Bravanese</category><category>Brent Getlin</category><category>CJK Radical</category><category>CLDR 23</category><category>CLDR 25</category><category>CLDR 27</category><category>CLDR 28</category><category>CLDR 29</category><category>CLDR 33.1</category><category>CLDR 36.1</category><category>CLDR-TC</category><category>Caddo</category><category>Carlos Pallan Gayol</category><category>Chorasmian</category><category>DAM 1</category><category>DNS</category><category>Dachuan Zhang</category><category>David Singer</category><category>Dhives-Akuru</category><category>Dives Akuru</category><category>Dogri</category><category>Du Lilyu</category><category>Ebrima</category><category>Emoji 14.0</category><category>Emoji One</category><category>Emoji12</category><category>Eric Muller</category><category>FAQ</category><category>Facebook</category><category>French</category><category>Fulani</category><category>Gabee Ayres</category><category>Gabrielle Vail</category><category>Georgian Mtavruli</category><category>Gretchen McCulloch</category><category>Hanyo Denshi</category><category>Harald Alvestrand</category><category>Hindi</category><category>Huijun Shan</category><category>I18n</category><category>IBM</category><category>ICU 58</category><category>ICU 59</category><category>ICU 63</category><category>ICU 64</category><category>ICU 65</category><category>ICU 66</category><category>ICU 67</category><category>ICU 68</category><category>ICU 69</category><category>ICU 70</category><category>IDS</category><category>IUC 39</category><category>IUC 40</category><category>IUC IUC 39</category><category>Iris Orriss</category><category>JSON</category><category>Japan</category><category>Jennifer 8 Lee</category><category>Jennifer Daniel</category><category>Jeremy Burge</category><category>KRName</category><category>Kangxi</category><category>Kashmiri</category><category>Khitan</category><category>Khwarezmian</category><category>Lari</category><category>Luce Foundation</category><category>Macao</category><category>Maithili</category><category>Malayalam</category><category>Manat</category><category>Manipuri</category><category>Mark Jamra</category><category>Mazahua</category><category>Medefaidrin</category><category>Message Format Working Group</category><category>Michele Coady</category><category>Monica Tang</category><category>NEH</category><category>National Endowment for the Humanities</category><category>Ned Holbrook</category><category>Nepal Bhasa</category><category>Netflix</category><category>New Tai Lue</category><category>Nigerian Pidgin</category><category>Norbert Lindenberg</category><category>Norwegian</category><category>Nyiakeng Puachue Hmong</category><category>Osage</category><category>PDAM 2.2</category><category>PRI #359</category><category>PRI #365</category><category>PRI #366</category><category>PRI #408</category><category>PRI #418</category><category>PRI #435</category><category>Pahlavi</category><category>Peter Constable</category><category>Peter Edberg</category><category>Phoreus</category><category>Public Review Issues</category><category>QID</category><category>RBNF</category><category>Rathna Ramanathan</category><category>Rohingya</category><category>Roozbeh Pournader</category><category>Ruble</category><category>Saagar Setu</category><category>Sanskrit</category><category>Santali</category><category>SignWriting</category><category>Sindhi</category><category>Sinhala</category><category>Siyaq</category><category>Sogdian</category><category>Swiftkey</category><category>Syloti Nagri</category><category>Tableaux des caractères</category><category>Tangsa</category><category>Tayfun Karadeniz</category><category>Thomas Mullaney</category><category>Toral Cowieson</category><category>Toto</category><category>UAX #14</category><category>UAX #15</category><category>UAX #45</category><category>UCA UCD</category><category>UCD</category><category>UTR #23</category><category>UTS #52</category><category>Uighur</category><category>Unicode Fellows</category><category>Unicode Technical Committee</category><category>UnicodeEmoji</category><category>UnicodeEmojiMirror</category><category>Unihan</category><category>Vithkuqi</category><category>Wancho</category><category>Warsh</category><category>Webdings</category><category>Wingdings</category><category>Yezidi</category><category>Zawgyi</category><category>Znamenny</category><category>amendment</category><category>annotations</category><category>art</category><category>beta 6.3 bidi</category><category>cambridge</category><category>character property model</category><category>cldr 31</category><category>cldr 35.1</category><category>compatibility</category><category>conjoining form</category><category>corrigendum</category><category>currency</category><category>customization</category><category>document register</category><category>domain names</category><category>donations</category><category>draft</category><category>egyptian</category><category>emoji 12.1</category><category>emojixpress</category><category>era name</category><category>executive director</category><category>feedback</category><category>font</category><category>française</category><category>gender</category><category>general category</category><category>general counsel</category><category>glyphs</category><category>grafematik</category><category>graphemics</category><category>hashtag</category><category>hentaigana</category><category>hieroglyphs</category><category>icu 60</category><category>icu 61</category><category>icu 64.2</category><category>iuc 44</category><category>keyboard</category><category>keyboards</category><category>locale</category><category>maya</category><category>mongolian</category><category>myanmar</category><category>noncharacters</category><category>oman</category><category>participation</category><category>phone</category><category>policies</category><category>publication</category><category>publishing</category><category>reference code</category><category>resources</category><category>script</category><category>segmentation</category><category>shopify</category><category>soyombo</category><category>speaker</category><category>sponsor</category><category>stability policies</category><category>standards</category><category>symbol</category><category>turkey</category><category>typography</category><category>variation</category><category>workshop</category><title>The Unicode Blog</title><description>News, announcements, release info, and calendar updates from the Unicode Consortium</description><link>http://blog.unicode.org/</link><managingEditor>noreply@blogger.com (Unicode, Inc.)</managingEditor><generator>Blogger</generator><openSearch:totalResults>438</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>25</openSearch:itemsPerPage><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-4696447359004480249</guid><pubDate>Thu, 02 Dec 2021 14:00:00 +0000</pubDate><atom:updated>2021-12-02T06:00:27.684-08:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">2021</category><category domain="http://www.blogger.com/atom/ns#">emoji</category><category domain="http://www.blogger.com/atom/ns#">frequency</category><category domain="http://www.blogger.com/atom/ns#">UnicodeEmojiMirror</category><title>The Most Frequently Used Emoji of 2021</title><description>&lt;h2&gt;The Unicode Emoji Mirror Project&lt;/h2&gt;
+
+&lt;img alt=&quot;Emoji 15 image&quot; border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/emoji-freq-2021-annc.png&quot; style=&quot;margin-bottom: 1em; margin-left: 0px;&quot; width=&quot;400&quot; /&gt;&lt;br /&gt;
+
+92% of the world’s online population use emoji —&amp;nbsp;but 
+
+which emoji are we using? The Unicode Consortium, the not-for-profit 
+
+organization responsible for digitizing the world’s languages, gathers 
+
+information about how frequently emoji are used. 
+
+Looking at patterns of usage helps to determine what new emoji should be added 
+
+to the Unicode Standard. 
+
+As part of this effort, we are making that data available to the public.&amp;nbsp;&lt;br /&gt;
+
+&lt;br /&gt;
+
+The new 
+
+&lt;a href=&quot;https://home.unicode.org/emoji/emoji-frequency&quot;&gt;
+
+Unicode Emoji Frequency&lt;/a&gt; 
+
+page lists the Unicode v12.0 emoji ranked in order of how frequently they were 
+
+used in 2021 and what has changed since 2019. Check it out for more analysis, 
+
+insights and patterns that illustrate our collective experience during a global 
+
+pandemic.&lt;br /&gt;
+
+&lt;br /&gt;
+
+#UnicodeEmojiMirror&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 144,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge]&quot; src=&quot;https://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/12/our-most-frequently-used-emoji.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-8183107664782270069</guid><pubDate>Wed, 17 Nov 2021 17:13:00 +0000</pubDate><atom:updated>2021-11-17T09:13:04.354-08:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">emoji</category><category domain="http://www.blogger.com/atom/ns#">emoji 15.0</category><category domain="http://www.blogger.com/atom/ns#">PRI #435</category><title>Unicode Emoji 15.0 Provisional Candidates</title><description>
+
+&lt;img alt=&quot;Emoji 15 image &quot; border=&quot;0&quot; style=&quot;margin-bottom: 1em; margin-left: 0;&quot; src=&quot;http://www.unicode.org/announcements/emoji15-annc.png&quot; width=&quot;400&quot; /&gt;&lt;br&gt;
+
+The Unicode Technical Committee has approved the list of provisional 
+
+candidates for Emoji 15.0. They are slated for release in September 2022 together with 
+
+Unicode 15.0. These candidates were identified by the Unicode Emoji Subcommittee after 
+
+reviewing proposals ranked according to previously-determined
+
+&lt;a href=&quot;https://www.unicode.org/emoji/proposals.html#selection_factors&quot;&gt;
+
+selection factors&lt;/a&gt;.&lt;br&gt;
+
+&lt;br&gt;
+
+The list of provisional emoji candidates can be found
+
+&lt;a href=&quot;https://www.unicode.org/review/pri435/pri435-background-emoji-candidates.pdf&quot;&gt;
+
+here&lt;/a&gt;. Note that they have not yet been assigned code 
+
+points or properties. For comments on these candidates, please 
+
+reference &lt;a href=&quot;https://www.unicode.org/review/pri435/&quot;&gt;PRI #435&lt;/a&gt; in your feedback.&lt;br&gt;
+
+&lt;br&gt;
+
+&lt;b&gt;How to Provide Feedback:&lt;/b&gt; For information about how to discuss this 
+
+Public Review Issue and how to supply formal feedback, please see the
+
+&lt;a href=&quot;https://www.unicode.org/review/index.html#feedback&quot;&gt;feedback and discussion 
+
+instructions&lt;/a&gt;.&lt;br&gt;
+
+&lt;br&gt;
+
+Feedback is reviewed by the relevant committee according to their meeting schedule.&lt;br&gt;
+
+&lt;br&gt;
+
+&lt;hr&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 144,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;https://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/11/unicode-emoji-150-provisional-candidates.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-7457133585728546808</guid><pubDate>Wed, 10 Nov 2021 18:54:00 +0000</pubDate><atom:updated>2021-11-10T10:54:51.212-08:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">FFI</category><category domain="http://www.blogger.com/atom/ns#">ICU</category><category domain="http://www.blogger.com/atom/ns#">ICU4X</category><category domain="http://www.blogger.com/atom/ns#">Rust</category><category domain="http://www.blogger.com/atom/ns#">Unicode</category><title>ICU4X 0.4 Released</title><description>&lt;img alt=&quot;ICU Logo&quot; border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/ICU-logo.png&quot; style=&quot;float: right;&quot; width=&quot;120&quot; /&gt;Unicode® ICU4X 0.4 has just been released. This revision brings an 
+
+implementation of
+
+&lt;a href=&quot;https://unicode-org.github.io/icu4x-docs/doc/icu_properties/index.html&quot;&gt;
+
+Unicode Properties&lt;/a&gt;, major
+
+&lt;a href=&quot;https://unicode-org.github.io/icu4x-docs/benchmarks/perf/components/datetime/&quot;&gt;
+
+performance&lt;/a&gt; and
+
+&lt;a href=&quot;https://unicode-org.github.io/icu4x-docs/benchmarks/memory/windows-latest/&quot;&gt;
+
+memory&lt;/a&gt; improvements for DateTimeFormat, and extends the data provider data 
+
+loading models with
+
+&lt;a href=&quot;https://unicode-org.github.io/icu4x-docs/doc/icu_provider_blob/index.html&quot;&gt;
+
+BlobDataProvider&lt;/a&gt;.&lt;br/&gt;
+
+&lt;br/&gt;
+
+ICU4X 0.4 also adds initial
+
+&lt;a href=&quot;https://unicode-org.github.io/icu4x-docs/doc/icu_datetime/zoned_datetime/struct.ZonedDateTimeFormat.html&quot;&gt;
+
+time zone support&lt;/a&gt; in DateTimeFormat, week of month/year, iteration APIs in
+
+&lt;a href=&quot;https://unicode-org.github.io/icu4x-docs/doc/icu_segmenter/index.html&quot;&gt;
+
+Segmenter&lt;/a&gt; and experimental
+
+&lt;a href=&quot;https://unicode-org.github.io/icu4x-docs/doc/icu_list/struct.ListFormatter.html&quot;&gt;
+
+ListFormatter&lt;/a&gt;.&lt;br/&gt;
+
+&lt;br/&gt;
+
+The ICU4X team is shifting to work on the 0.5 release in accordance 
+
+with the
+
+&lt;a href=&quot;https://github.com/unicode-org/icu4x/blob/main/docs/process/roadmap.md&quot;&gt;
+
+roadmap&lt;/a&gt; and a
+
+&lt;a href=&quot;https://github.com/unicode-org/icu4x/blob/main/docs/process/prd.md&quot;&gt;
+
+product requirements document&lt;/a&gt; setting sights on a stable 1.0 release in Q2 
+
+2022.&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;a href=&quot;https://github.com/unicode-org/icu4x/blob/main/docs/process/charter.md&quot;&gt;
+
+ICU4X&lt;/a&gt; aims to develop a highly modular set of internationalization 
+
+components for resource-constrained environments, portable across programming 
+
+languages.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Multiple early adopters use ICU4X in pre-release software in Rust, 
+
+C, C++, and WebAssembly. The team is ready to onboard additional early adopters 
+
+to refine the APIs, build processes, and feature sets before the 1.0 release. 
+
+The team is also looking for contributors to write code generation for 
+
+additional target programming languages. For more information, please
+
+&lt;a href=&quot;https://github.com/unicode-org/icu4x/discussions&quot;&gt;open a discussion on 
+
+the ICU4X GitHub&lt;/a&gt;.&lt;br/&gt;
+
+&lt;br/&gt;
+
+For details, please see the
+
+&lt;a href=&quot;https://github.com/unicode-org/icu4x/blob/main/CHANGELOG.md#icu4x-040-november-1-2021&quot;&gt;
+
+changelog&lt;/a&gt;.&lt;br/&gt;
+
+&lt;br /&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 144,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;https://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/11/icu4x-04-released.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-8183176961725664214</guid><pubDate>Thu, 28 Oct 2021 20:12:00 +0000</pubDate><atom:updated>2021-10-28T13:12:54.765-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">CLDR</category><category domain="http://www.blogger.com/atom/ns#">cldr 40</category><category domain="http://www.blogger.com/atom/ns#">LDML</category><category domain="http://www.blogger.com/atom/ns#">Unicode 14</category><title>Unicode CLDR v40 now available!</title><description>&lt;a href=&quot;https://www.unicode.org/announcements/nest-with-blue-eggs-128px.png&quot; style=&quot;clear: right; float: right; margin-bottom: 1em; margin-left: 1em;&quot;&gt;&lt;img border=&quot;0&quot; width=&quot;128px&quot; src=&quot;https://www.unicode.org/announcements/nest-with-blue-eggs-128px.png&quot; alt=&quot;[nest image] &quot;/&gt;&lt;/a&gt;Unicode CLDR version 40 is now available, with approximately 
+
+140,000 new or modified data fields.&lt;br/&gt;
+
+&lt;br/&gt;
+
+In this release, the focus is on:&lt;br/&gt;
+
+&lt;h3&gt;Grammatical features (gender and case)&lt;/h3&gt;
+
+In many languages, forming grammatical phrases requires dealing 
+
+with grammatical gender and case. Without that, it can sound as bad as &quot;on top 
+
+of 3 hours&quot; instead of &quot;in 3 hours&quot;. The overall goal for CLDR is to supply 
+
+building blocks so that implementations of advanced message formatting can 
+
+handle gender and case.&lt;br/&gt;
+
+&lt;ul&gt;
+
+	&lt;li&gt;&lt;b&gt;Phase 1 (v39)&lt;/b&gt; of grammatical features 
+
+	included just 12 locales (da, de, es, fr, hi, it, nl, no, pl, pt, ru, sv) 
+
+	for all units of measurement.&lt;/li&gt;
+
+	&lt;li&gt;&lt;b&gt;Phase 2 (v40) &lt;/b&gt;has expanded the number of 
+
+	locales by 29 (am, ar, bn, ca, cs, el, fi, gu, he, hr, hu, hy, is, kn, lt, 
+
+	lv, ml, mr, nb, pa, ro, si, sk, sl, sr, ta, te, uk, ur), but for a more 
+
+	restricted number of units.&lt;/li&gt;
+
+	&lt;li&gt;&lt;b&gt;Phase 3 (v41)&lt;/b&gt; will further expand the units.&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;h3&gt;Emoji v14 names and search keywords&lt;/h3&gt;
+
+CLDR supplies short names and search keywords for the new emoji, so 
+
+that implementations can build on them to provide, for example, type-ahead in 
+
+keyboards.&lt;br/&gt;
+
+&lt;h3&gt;Modernized Survey Tool front end&lt;/h3&gt;
+
+The Survey Tool is used to gather all the data for locales. The 
+
+outmoded Javascript infrastructure was modernized to make it easier to add 
+
+enhancements (such as the split-screen dashboard) and to fix bugs.&lt;br/&gt;
+
+&lt;h3&gt;Specification Improvements&lt;/h3&gt;
+
+The LDML specification has some important fixes and clarifications 
+
+for Locale Identifiers, Dates, and Units of Measurement.&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;hr/&gt;&lt;br/&gt;
+
+Please see the &lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40&quot;&gt;CLDR v40 Release Note&lt;/a&gt; 
+
+for details, including:&lt;br/&gt;
+
+&lt;ul&gt;
+
+	&lt;li&gt;&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40#h.im55swwaym3z&quot;&gt;Data Changes&lt;/a&gt;
+
+	    &lt;ul&gt;
+
+		&lt;li&gt;&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40#h.2h4uc6p39ub4&quot;&gt;DTD Changes&lt;/a&gt;&lt;/li&gt;
+
+		&lt;li&gt;&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40#h.sb7j4t4wudpj&quot;&gt;Segmentation&lt;/a&gt;&lt;/li&gt;
+
+		&lt;li&gt;&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40#h.mc372kkefa0z&quot;&gt;Supplemental Data Changes&lt;/a&gt;&lt;/li&gt;
+
+		&lt;li&gt;&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40#h.za2v8xi5h03l&quot;&gt;Locale Changes&lt;/a&gt;&lt;/li&gt;
+
+		&lt;li&gt;&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40#h.sgmmba9x8qgi&quot;&gt;File Changes&lt;/a&gt;&lt;/li&gt;
+
+		&lt;li&gt;&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40#h.nssoo2lq3cba&quot;&gt;JSON Data Changes&lt;/a&gt;&lt;/li&gt;
+
+	    &lt;/ul&gt;
+
+	&lt;/li&gt;
+
+	&lt;li&gt;&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40#h.eiuj25eny8qk&quot;&gt;Specification Changes&lt;/a&gt;
+
+	    &lt;ul&gt;
+
+		&lt;li&gt;&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40#h.be1koxhje8cc&quot;&gt;Locale Identifiers&lt;/a&gt;&lt;/li&gt;
+
+		&lt;li&gt;&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40#h.78ac3bvwr00x&quot;&gt;Dates&lt;/a&gt;&lt;/li&gt;
+
+		&lt;li&gt;&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40#h.tn2zyatubx58&quot;&gt;Units of Measurement&lt;/a&gt;&lt;/li&gt;
+
+	    &lt;/ul&gt;
+
+	&lt;/li&gt;
+
+	&lt;li&gt;&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40#h.832m9sqidbi7&quot;&gt;Growth&lt;/a&gt;&lt;/li&gt;
+
+	&lt;li&gt;&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40#h.li4o7qdpw1is&quot;&gt;Migration&lt;/a&gt;&lt;/li&gt;
+
+	&lt;li&gt;&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40#h.uanqoyl5dqt3&quot;&gt;Known Issues&lt;/a&gt;&lt;/li&gt;
+
+	&lt;li&gt;&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40#h.ggtrsljis051&quot;&gt;Acknowledgments&lt;/a&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;br/&gt;
+
+Unicode CLDR provides key building blocks for software supporting the world&#39;s languages. CLDR data is used by all
+
+&lt;a href=&quot;https://cldr.unicode.org/index#h.ezpykkomyltl&quot;&gt;major software 
+
+systems&lt;/a&gt; (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of 
+
+different languages.&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;hr&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 144,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;https://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/10/unicode-cldr-v40-now-available.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-7492230314681865126</guid><pubDate>Thu, 28 Oct 2021 19:31:00 +0000</pubDate><atom:updated>2021-10-28T12:31:22.484-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">CLDR</category><category domain="http://www.blogger.com/atom/ns#">cldr 40</category><category domain="http://www.blogger.com/atom/ns#">ICU</category><category domain="http://www.blogger.com/atom/ns#">ICU 70</category><category domain="http://www.blogger.com/atom/ns#">Unicode 14</category><title>ICU 70 Released</title><description>
+
+&lt;img alt=&quot;ICU Logo&quot; border=&quot;0&quot; style=&quot;clear: right; float: right; margin-bottom: 1em; margin-left: 1em;&quot; src=&quot;http://www.unicode.org/announcements/ICU-logo.png&quot; width=&quot;100&quot; /&gt;Unicode® ICU 70 has just been released. ICU 70 incorporates updates to
+
+&lt;a href=&quot;http://blog.unicode.org/2021/09/announcing-unicode-standard-version-140.html&quot;&gt;
+
+Unicode 14&lt;/a&gt;, including new characters, scripts, emoji, and corresponding API 
+
+constants. ICU 70 adds support for emoji properties of strings. It also updates 
+
+to &lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40&quot;&gt;CLDR 40&lt;/a&gt; locale 
+
+data with many additions and corrections. ICU 70 also includes many other bug 
+
+fixes and enhancements, especially for measurement unit formatting, and it can 
+
+now be built and used with C++20 compilers.&lt;br/&gt;
+
+&lt;br/&gt;
+
+ICU is a software library
+
+&lt;a href=&quot;https://icu.unicode.org/#h.f9qwubthqabj&quot;&gt;widely used by products and 
+
+other libraries&lt;/a&gt; to support the world&#39;s languages, implementing both the 
+
+latest version of the Unicode Standard and of the Unicode locale data (CLDR).&lt;br/&gt;
+
+&lt;br/&gt;
+
+For details, please see
+
+&lt;a href=&quot;https://icu.unicode.org/download/70&quot;&gt;
+
+https://icu.unicode.org/download/70&lt;/a&gt;.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Note: Our website has moved. Please adjust your bookmarks.&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;hr&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 144,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;https://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/10/icu-70-released.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-5092742231771774397</guid><pubDate>Wed, 06 Oct 2021 22:00:00 +0000</pubDate><atom:updated>2021-10-06T15:00:15.150-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">beta</category><category domain="http://www.blogger.com/atom/ns#">CLDR</category><category domain="http://www.blogger.com/atom/ns#">cldr 40</category><title>Unicode CLDR v40 Beta available for testing</title><description>&lt;a href=&quot;https://www.unicode.org/announcements/cldr40-alpha-annc.png&quot; style=&quot;clear: right; float: right; margin-bottom: 1em; margin-left: 1em;&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/cldr40-alpha-annc.png&quot; alt=&quot;[beta image] &quot;/&gt;&lt;/a&gt;The Unicode CLDR v40 Beta is now available for testing. The beta has already been 
+
+integrated into the development version of ICU. We would especially appreciate 
+
+feedback from non-ICU consumers of CLDR data. Feedback can be filed at
+
+&lt;a href=&quot;https://unicode-org.atlassian.net/projects/CLDR/&quot;&gt;CLDR Tickets&lt;/a&gt;.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Beta means that the main data, charts, and specification are 
+
+available for review, but the JSON data is not yet ready for review. Some data 
+
+may change if showstopper bugs are found. The planned schedule is:&lt;br/&gt;
+
+&lt;ul&gt;
+
+	&lt;li&gt;Oct 27 — Release&lt;/li&gt;
+
+&lt;/ul&gt;
+
+In CLDR v40, the focus is on:&lt;br/&gt;
+
+&lt;br/&gt;
+
+Grammatical features (gender and case) for units of measurement in 
+
+additional locales&lt;br/&gt;
+
+&lt;ul&gt;
+
+	&lt;li&gt;In many languages, forming grammatical 
+
+	phrases requires dealing with grammatical gender and case. Without that, it 
+
+	can sound as bad as &quot;on top of 3 hours&quot; instead of &quot;in 3 hours&quot;&lt;/li&gt;
+
+	&lt;li&gt;Phase 1 (v39) of grammatical features 
+
+	included just 12 locales (da, de, es, fr, hi, it, nl, no, pl, pt, ru, sv).&lt;/li&gt;
+
+	&lt;li&gt;Phase 2 (v40) has expanded the number of 
+
+	locales by 29 (am, ar, bn, ca, cs, el, fi, gu, he, hr, hu, hy, is, kn, lt, 
+
+	lv, ml, mr, nb, pa, ro, si, sk, sl, sr, ta, te, uk, ur), but for a more 
+
+	restricted number of units.&lt;/li&gt;
+
+&lt;/ul&gt;
+
+Emoji v14 names and search keywords&lt;br/&gt;
+
+&lt;ul&gt;
+
+	&lt;li&gt;These supply short names and search 
+
+	keywords for the new emoji, so that implementations can build on them to 
+
+	provide, for example, type-ahead in keyboards&lt;/li&gt;
+
+&lt;/ul&gt;
+
+Modernized Survey Tool front end.&lt;br/&gt;
+
+&lt;ul&gt;
+
+	&lt;li&gt;The Survey Tool is used to gather all the 
+
+	data for locales. The outmoded Javascript infrastructure (very difficult to 
+
+	enhance or even fix bugs) was modernized.&lt;/li&gt;
+
+&lt;/ul&gt;
+
+Specification Improvements&lt;br/&gt;
+
+&lt;ul&gt;
+
+	&lt;li&gt;Notably in the areas of Locale Identifiers, 
+
+	Dates, and Units of Measurement&lt;/li&gt;
+
+&lt;/ul&gt;
+
+There are many other changes: to find out more, see the draft
+
+&lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40&quot;&gt;CLDR v40 release page&lt;/a&gt;, 
+
+which has information on accessing the date, reviewing charts of the changes, 
+
+and necessary migration changes.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Unicode CLDR provides key building blocks for software supporting 
+
+the world&#39;s languages. CLDR data is used by all
+
+&lt;a href=&quot;http://cldr.unicode.org/index#TOC-Who-uses-CLDR-&quot;&gt;major software 
+
+systems&lt;/a&gt; (including all mobile phones) for their software 
+
+internationalization and localization, adapting software to the conventions of 
+
+different languages.&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 144,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;https://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/10/unicode-cldr-v40-beta-available-for.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-2044045853010619106</guid><pubDate>Tue, 14 Sep 2021 20:20:00 +0000</pubDate><atom:updated>2021-09-14T15:44:34.872-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">Arabic</category><category domain="http://www.blogger.com/atom/ns#">Emoji 14.0</category><category domain="http://www.blogger.com/atom/ns#">Tangsa</category><category domain="http://www.blogger.com/atom/ns#">Toto</category><category domain="http://www.blogger.com/atom/ns#">Unicode 14</category><category domain="http://www.blogger.com/atom/ns#">Vithkuqi</category><category domain="http://www.blogger.com/atom/ns#">Znamenny</category><title>Announcing The Unicode® Standard, Version 14.0</title><description>&lt;img alt=&quot;Vithkuqi Sample &quot; border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/u14-beta-annc-vithkuqi-sample.jpg&quot; style=&quot;float: right;&quot; width=&quot;214&quot; /&gt;Version 14.0 of the Unicode Standard is now available, including the core specification,
+
+annexes, and data files. This version adds 838 characters, for a total of 144,697
+
+characters. These additions include five new scripts, for a total of 159
+
+scripts, as well as 37 new emoji characters.&lt;br/&gt;
+
+&lt;br/&gt;
+
+The new scripts and characters in Version 14.0 add support for modern language
+
+groups in Bosnia, India, Indonesia, Iran, Java, Malaysia, Mongolia, Myanmar, Pakistan,
+
+and the Philippines, plus other languages in Africa and North America, including:&lt;br/&gt;
+
+&lt;ul&gt;
+
+ &lt;li&gt;Arabic script
+
+     additions that include honorifics and additions for Quranic use, and characters
+
+     used to write languages across Africa, the Balkans, and South and
+
+     Southeast Asia&lt;/li&gt;
+
+ &lt;li&gt;The Vithkuqi script historically
+
+     used to write Albanian and currently undergoing a modern revival&lt;/li&gt;
+
+ &lt;li&gt;The Tangsa script
+
+     used to write the Tangsa language, spoken in India and Myanmar&lt;/li&gt;
+
+ &lt;li&gt;The Toto
+
+     script used to write the Toto language in northeast India&lt;/li&gt;
+
+ &lt;li&gt;Many Latin script
+
+     additions for extended IPA&lt;/li&gt;
+
+&lt;/ul&gt;
+
+Popular symbol additions include:&lt;br/&gt;
+
+&lt;ul&gt;
+
+ &lt;li&gt;37 emoji characters,
+
+     including several new emoji for emotion and hand gestures (smileys, hands,
+
+     animals and nature, food and drink, transport, and activities). For the
+
+     full list of new emoji characters, see &lt;a href=&quot;https://www.unicode.org/emoji/charts-14.0/emoji-released.html&quot; target=&quot;_blank&quot;&gt;emoji additions for
+
+     Unicode 14.0&lt;/a&gt;, and &lt;a href=&quot;https://www.unicode.org/emoji/charts-14.0/emoji-counts.html&quot; target=&quot;_blank&quot;&gt;Emoji Counts&lt;/a&gt;. 
+
+     For a detailed description of support for
+
+     emoji characters by the Unicode Standard, see &lt;a href=&quot;https://www.unicode.org/reports/tr51/tr51-21.html&quot; target=&quot;_blank&quot;&gt;UTS #51, Unicode Emoji&lt;/a&gt;.&lt;/li&gt;
+
+&lt;/ul&gt;
+
+Other symbol and notational additions include:&lt;br/&gt;
+
+&lt;ul&gt;
+
+ &lt;li&gt;The som currency sign used in the Kyrgyz Republic&lt;/li&gt;
+
+ &lt;li&gt;Znamenny musical notation developed in Russia &lt;/li&gt;
+
+&lt;/ul&gt;
+
+Support for other modern languages and scholarly work extends worldwide, including:&lt;br/&gt;
+
+&lt;ul&gt;
+
+ &lt;li&gt;Cypro-Minoan, historically used primarily on the island of Cyprus&lt;/li&gt;
+
+ &lt;li&gt;Old Uyghur, historically used in Central Asia and elsewhere to write Turkic, Chinese, Mongolian, Tibetan, and Arabic languages&lt;/li&gt;
+
+ &lt;li&gt;Ahom, Balinese, Brahmi, Canadian aboriginal languages, Glagolitic, Kaithi, Kannada, Mongolian, Tagalog, Takri, and Telugu&lt;/li&gt;
+
+ &lt;li&gt;Arabic support for Hausa, Wolof, Hindko, and 
+
+     Punjabi, and Ethiopic support for Gurage&lt;/li&gt;
+
+&lt;/ul&gt;
+
+Important chart font updates, including:&lt;br/&gt;
+
+&lt;ul&gt;
+
+ &lt;li&gt;Significant updates to the CJK auxiliary blocks and enclosed alphanumerics &lt;/li&gt;
+
+&lt;/ul&gt;
+
+Unicode properties and specifications determine the behavior of text on computers and
+
+phones. Changes in Version 14.0 include the following Unicode Standard Annexes
+
+and Technical Standards that have notable modifications:&lt;br/&gt;
+
+&lt;br/&gt;
+
+Five important Unicode annexes updated for Version 14.0:&lt;br/&gt;
+
+&lt;ul&gt;
+
+ &lt;li&gt;&lt;a href=&quot;https://www.unicode.org/reports/tr14/tr14-47.html&quot; target=&quot;_blank&quot;&gt;UAX #14, Unicode Linebreaking Algorithm&lt;/a&gt;&lt;/li&gt;
+
+ &lt;li&gt;&lt;a href=&quot;https://www.unicode.org/reports/tr29/tr29-39.html&quot; target=&quot;_blank&quot;&gt;UAX #29, Unicode Text Segmentation&lt;/a&gt;&lt;/li&gt;
+
+ &lt;li&gt;&lt;a href=&quot;https://www.unicode.org/reports/tr31/tr31-35.html&quot; target=&quot;_blank&quot;&gt;UAX #31, Unicode Identifier and Pattern Syntax&lt;/a&gt;&lt;/li&gt;
+
+ &lt;li&gt;&lt;a href=&quot;https://www.unicode.org/reports/tr38/tr38-31.html&quot; target=&quot;_blank&quot;&gt;UAX #38, Unicode Han Database (Unihan)&lt;/a&gt;&lt;/li&gt;
+
+ &lt;li&gt;&lt;a href=&quot;https://www.unicode.org/reports/tr45/tr45-25.html&quot; target=&quot;_blank&quot;&gt;UAX #45, U-Source Ideographs&lt;/a&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+Three important Unicode specifications updated for Version 14.0:&lt;br/&gt;
+
+&lt;ul&gt;
+
+ &lt;li&gt;&lt;a href=&quot;https://www.unicode.org/reports/tr10/tr10-45.html&quot; target=&quot;_blank&quot;&gt;UTS #10, Unicode Collation Algorithm&lt;/a&gt;&amp;nbsp;— sorting Unicode text&lt;/li&gt;
+
+ &lt;li&gt;&lt;a href=&quot;https://www.unicode.org/reports/tr39/tr39-24.html&quot; target=&quot;_blank&quot;&gt;UTS #39, Unicode Security Mechanisms&lt;/a&gt;&amp;nbsp;— reducing Unicode spoofing&lt;/li&gt;
+
+ &lt;li&gt;&lt;a href=&quot;https://www.unicode.org/reports/tr46/tr46-27.html&quot; target=&quot;_blank&quot;&gt;UTS #46, Unicode IDNA Compatibility Processing&lt;/a&gt;&amp;nbsp;— compatible processing of non-ASCII URLs&lt;/li&gt;
+
+&lt;/ul&gt;
+
+The Unicode Standard is the foundation for all modern software and communications
+
+around the world, including operating systems, browsers, laptops, and smart
+
+phones—plus the Internet and Web (URLs, HTML, XML, CSS, JSON, etc.). The
+
+Unicode Standard, its associated standards, and data form the foundation for CLDR
+
+and ICU releases.&lt;br/&gt;
+
+&lt;br /&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 144,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;https://www.unicode.org/announcements/ynh-1fab4-potted-plant.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/09/announcing-unicode-standard-version-140.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-3621200657088066193</guid><pubDate>Thu, 09 Sep 2021 23:11:00 +0000</pubDate><atom:updated>2021-09-09T16:11:12.682-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">alpha</category><category domain="http://www.blogger.com/atom/ns#">cldr 40</category><category domain="http://www.blogger.com/atom/ns#">Survey Tool</category><title>Unicode CLDR v40 Alpha available for testing</title><description>&lt;img alt=&quot;construction image &quot; border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/cldr40-alpha-annc.png&quot; style=&quot;float: right;&quot; title=&quot;image &quot; width=&quot;150&quot; /&gt;The Unicode CLDR v40 Alpha is now available for testing. The alpha has already been integrated into the development version of ICU. We would especially appreciate feedback from non-ICU consumers of CLDR data. Feedback can be filed at &lt;a href=&quot;https://unicode-org.atlassian.net/projects/CLDR/&quot;&gt;CLDR Tickets&lt;/a&gt;.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Alpha means that the main data and charts are available for review, but the specification, JSON data, and other components are not yet ready for review. Some data may change if showstopper bugs are found. The planned schedule is:&lt;br/&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;Sep 21 — Beta (data)&lt;/li&gt;
+
+&lt;li&gt;Oct 06 — Beta2 (spec)&lt;/li&gt;
+
+&lt;li&gt;Oct 27 — Release&lt;/li&gt;
+
+&lt;/ul&gt;
+
+In CLDR v40, the main focus is on:&lt;br/&gt;
+
+&lt;ul&gt;
+
+	&lt;li&gt;&lt;b&gt;Grammatical features (gender and case) for units of measurement in additional locales&lt;/b&gt;&lt;br/&gt;
+
+&lt;br/&gt;
+
+	&lt;b&gt;Phase 1 (v39)&lt;/b&gt; of grammatical features included just 12 locales (da, 
+
+de, es, fr, hi, it, nl, no, pl, pt, ru, sv).&lt;br/&gt;&lt;br/&gt;
+
+	&lt;b&gt;Phase 2 (v40)&lt;/b&gt; has expanded the number of locales by 29 (am, ar, bn, ca, cs, el, fi, gu, he, hr, hu, hy, is, kn, lt, lv, ml, mr, nb, pa, ro, si, sk, sl, sr, ta, te, uk, ur), but for a narrower set of units.&lt;br/&gt;&lt;br/&gt;
+
+&lt;/li&gt;
+
+	&lt;li&gt;&lt;b&gt;Emoji v14 names and search keywords&lt;/b&gt;&lt;/li&gt;
+
+	&lt;li&gt;&lt;b&gt;Modernized Survey Tool front end.&lt;/b&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+There are many other changes: to find out more, see the draft &lt;a href=&quot;https://cldr.unicode.org/index/downloads/cldr-40&quot;&gt;CLDR v40 release page&lt;/a&gt;, which has information on accessing the date, reviewing charts of the changes, and necessary migration changes.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Unicode CLDR provides key building blocks for software supporting the world’s languages. CLDR data is used by all &lt;a href=&quot;http://cldr.unicode.org/index#TOC-Who-uses-CLDR-&quot;&gt;major software systems&lt;/a&gt; (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of different languages.&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 140,000 characters are available for &lt;a href=&quot;http://unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;http://unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;http://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/09/unicode-cldr-v40-alpha-available-for.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-8780874369327977796</guid><pubDate>Tue, 07 Sep 2021 17:21:00 +0000</pubDate><atom:updated>2021-09-07T10:21:02.151-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">14.0</category><category domain="http://www.blogger.com/atom/ns#">cover art</category><category domain="http://www.blogger.com/atom/ns#">The Unicode Standard</category><title>Unicode Consortium Announces Version 14.0 Cover Design</title><description>The Unicode Consortium is pleased to announce the new design selected for the cover of the forthcoming print-on-demand publication of The Unicode Standard, Version 14.0. The Unicode Consortium issued an open call for artists and designers to submit cover design proposals. All submitted designs were reviewed by an independent panel.&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;div align=&quot;left&quot;&gt;
+
+&lt;img src=&quot;https://www.unicode.org/announcements/annc-u14-Sophia-Tai-cover.jpg&quot; alt=&quot;Image of Sophia Tai design &quot;&gt;
+
+&lt;/div&gt;
+
+The selected cover artwork for Version 14.0 is an original design by Sophia Tai, an MA student in Typeface Design at the University of Reading. Her cover art represents type in boxes, which shares a visual language with the arrangement of metal type, as well as the Unicode code charts. She selected a global mix of characters to present a variety of writing systems, using neon colors to create liveliness. The neutral background represents a sense of being down to earth, as well as the longevity and preservation of writing systems.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Two runner-up designs were also selected. One is a contemporary design by Beatriz de Paula Mattos, a graphic design student at the University of Vale do Itajaí, Brazil. The other runner-up design was created by Jesús Barrientos Mora, a professor with a degree in Type Design, who also leads the Talavera Type Workshop foundry in Puebla, Mexico.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Beatriz de Paula Mattos:&lt;/br&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;img src=&quot;https://www.unicode.org/announcements/annc-u14-Beatriz-de-Paula-Mattos.jpg&quot; alt=&quot;Image of Beatriz de Paula Mattos design &quot;&gt;
+
+&lt;/div&gt;
+
+Jesús Barrientos Mora:&lt;/br&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;img src=&quot;https://www.unicode.org/announcements/annc-u14-Jesús-Barrientos-Mora.jpg&quot; alt=&quot;Image of Jesús Barrientos Mora design &quot;&gt;
+
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 144,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;https://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/09/unicode-consortium-announces-version.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-8149149213698331422</guid><pubDate>Tue, 03 Aug 2021 17:17:00 +0000</pubDate><atom:updated>2021-08-03T10:17:00.319-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">Gretchen McCulloch</category><category domain="http://www.blogger.com/atom/ns#">IUC</category><category domain="http://www.blogger.com/atom/ns#">IUC 45</category><category domain="http://www.blogger.com/atom/ns#">keynote</category><category domain="http://www.blogger.com/atom/ns#">speaker</category><title>Announcing Internationalization &amp; Unicode Conference #45 Keynote Speaker Gretchen McCulloch</title><description>&lt;b&gt;Taking Playfulness Seriously—When character sets are used in 
+
+unexpected ways&lt;/b&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;img alt=&quot;Gretchen McCulloch, photo by Yvon Huynh &quot; title=&quot;Photo by Yvon Huynh &quot; border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/gretchen-mcculloch-iuc45-photo-by-Yvon-Huynh.jpg&quot; width=&quot;312&quot; /&gt;
+
+&lt;/div&gt;
+
+HEEEEELLLLLLOOOO friends of Unicode! HaVE yoU HEard? 🚨🚨This 
+
+year’s &lt;a href=&quot;https://events.omg.org/iuc45/speakers/&quot;&gt;keynote speaker&lt;/a&gt; is
+
+&lt;a href=&quot;https://gretchenmcculloch.com/bio/&quot;&gt;Gretchen McCulloch&lt;/a&gt;, internet 
+
+linguist and bestselling author of the 2019 book, &lt;i&gt;Because Internet: 
+
+  Understanding the New Rules of Language&lt;/i&gt;. ✍️ You ✍️ may ✍️ also ✍️ know ✍️ 
+
+Gretchen ✍️ from ✍️ her ✍️ column ✍️ about ✍️ internet ✍️ language ✍️ in ✍️ 
+
+WIRED. If you aren’t familiar withGretchen’s book it includes great insights of 
+
+how language and technology evolves! Don’t miss this unique opportunity to hear 
+
+from her in person. (♥ω♥*)&lt;br /&gt;
+
+&lt;br /&gt;
+
+Her talk, “Taking Playfulness Seriously—When character sets are 
+
+used in unexpected ways,” explores those trailblazing language disrupters, who 
+
+aren’t checking out the Oxford English dictionary or asking themselves, “What 
+
+would my college English prof do about this comma?” You know who you are! 👀 
+
+She’ll discuss all the creative ways real-life netizens playfully create ASCII 
+
+art out of text or combine emoji to convey new meanings, as well as the problems 
+
+that arise when these kinds of creative uses clash with technical tools behind 
+
+the scenes that aren’t expecting the unexpected—and what some solutions might 
+
+look like.&lt;br /&gt;
+
+&lt;br /&gt;
+
+In addition to Gretchen McCulloch, the conference offers Unicode 
+
+tutorials, talks and panels on internationalization, web design, emoji, 
+
+indigenous languages, historical scripts, and more. Of course, the conference 
+
+also includes plenty of networking opportunities, as well as a special 
+
+celebration of the Unicode Consortium’s 30th anniversary!&lt;br /&gt;&lt;br /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;img alt=&quot;meme &quot; title=&quot;meme &quot; border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/annc-iuc45-life-before-after.png&quot; width=&quot;300&quot; /&gt;
+
+&lt;/div&gt;
+
+&lt;h3 dir=&quot;ltr&quot;&gt;See What’s Happening at IUC 45&lt;/h3&gt;
+
+For thirty years the &lt;a href=&quot;https://www.unicodeconference.org/&quot;&gt;
+
+Internationalization &amp;amp; Unicode® Conference (IUC)&lt;/a&gt; has been the preeminent 
+
+event highlighting the latest innovations and best practices of global and 
+
+multilingual software providers. Join us in Santa Clara to promote your ideas 
+
+and experiences working with natural languages, multicultural user interfaces, 
+
+producing and supporting multinational and multilingual products, linguistic 
+
+algorithms, applying internationalization across mobile and social media 
+
+platforms, or advancements in relevant standards.&lt;br /&gt;
+
+&lt;br /&gt;
+
+Join expert practitioners and industry leaders as they present 
+
+detailed recommendations for businesses looking to expand to new international 
+
+markets and those seeking to improve time to market and cost-efficiency of 
+
+supporting existing markets. Recent conferences have provided specific advice on 
+
+designing software for European countries, Latin America, China, India, Japan, 
+
+Korea, the Middle East, and emerging markets.&lt;br /&gt;
+
+&lt;br /&gt;
+
+Join us for the Internationalization &amp;amp; Unicode Conference 45, October 13-15, 
+
+2021, Santa Clara, California. To register and learn more, please visit the
+
+&lt;a href=&quot;https://www.unicodeconference.org/&quot;&gt;Internationalization &amp;amp; Unicode 
+
+Conference&lt;/a&gt; website. &lt;a href=&quot;https://www.omg.org/&quot;&gt;Object Management Group&lt;/a&gt;®, (OMG®) organizes the Internationalization and Unicode Conferences around the 
+
+world under an exclusive license granted by the &lt;a href=&quot;https://home.unicode.org/&quot;&gt;Unicode Consortium&lt;/a&gt;.
+
+</description><link>http://blog.unicode.org/2021/08/announcing-internationalization-unicode.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-1642231880366502038</guid><pubDate>Tue, 20 Jul 2021 19:18:00 +0000</pubDate><atom:updated>2021-07-20T12:18:04.556-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">executive director</category><category domain="http://www.blogger.com/atom/ns#">Toral Cowieson</category><category domain="http://www.blogger.com/atom/ns#">Unicode</category><category domain="http://www.blogger.com/atom/ns#">Unicode Fellows</category><title>The Unicode Consortium Welcomes Toral Cowieson as Executive Director &amp; COO</title><description>&lt;img alt=&quot;keyboard photo &quot; title=&quot;Photo by https://unsplash.com/@ishtiaque_jpg on Unsplash &quot; longdesc=&quot;https://unsplash.com/photos/WEtayAGz9mY&quot; border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/ishtiaque-hossain-WEtayAGz9mY-unsplash-500px.jpg&quot; style=&quot;float: right;&quot; width=&quot;210&quot; /&gt;Since its founding, the Unicode Consortium has grown and expanded its charter and scope. We’re embarking on a new chapter in the evolution of the Consortium and are pleased to announce the appointment of Toral Cowieson in the newly-created position of Executive Director &amp;amp; COO.&lt;br /&gt;&lt;br /&gt;
+
+“We are thrilled to have Toral joining the team,” said Mark Davis, President and cofounder of the Consortium. “She brings a wealth of experience in leadership across non-profits, corporations, and board service. Her recent time at the Internet Society, including as head of Strategy and Impact Measurement, puts Unicode in good stead for this next stage of growth.&quot;&lt;br /&gt;&lt;br /&gt;
+
+In this senior executive position reporting to the Chair of the Board of Directors, Ms. Cowieson will collaborate with the Board, officers, and team to extend the technical mission and impact, set the future agenda and program priorities, and ensure the long-term health and sustainability of the organization.&lt;br /&gt;&lt;br /&gt;
+
+“Unicode standards are at the heart of how users seamlessly receive and share information across the nearly 22 billion devices around the world. I’m honored and excited to be joining the Consortium at this juncture, and look forward to working with the Board, staff, and the extended Unicode community to advance the mission and have an even greater impact in the years to come,” commented Ms. Cowieson.&lt;br /&gt;&lt;br /&gt;
+
+In addition to Ms. Cowieson joining as Executive Director, the Consortium is also pleased to announce the following changes:&lt;br /&gt;&lt;br /&gt;
+
+&lt;h2 dir=&quot;ltr&quot;&gt;Board and Other Leadership Updates&lt;/h2&gt;
+
+Iris Orriss, who joined the Unicode Board in 2019, has been elected as the Treasurer of the Consortium. She is VP of Internationalization, Product Quality, and Product Experience Analytics at Facebook. Ms. Orriss is also Chair of the Board’s Finance and Funding Committee.&lt;br /&gt;&lt;br /&gt;
+
+Greg Welch, member of the Board since 2013, has been elected as the Secretary of the Consortium and carries forward the excellent work done in this office by Michel Suignard for more than a decade. Mr. Welch is also Chair of the Board’s Governance &amp;amp; Nominating Committee.&lt;br /&gt;&lt;br /&gt;
+
+Markus Scherer, the Chair of the ICU Technical Committee, has been appointed a Vice President. He is a member of the Google software internationalization team, focusing on the effective use of Unicode and on the development and deployment of cross-product internationalization libraries.&lt;br /&gt;&lt;br /&gt;
+
+&lt;h2 dir=&quot;ltr&quot;&gt;Announcing Unicode Fellows&lt;/h2&gt;
+
+The Consortium has recently created a new category for distinguished contributors, whose deep, long-term knowledge of internationalization and dedication to work on standards has greatly benefited the Consortium for many years. The Consortium is pleased to announce its two inaugural Unicode Fellows.&lt;br /&gt;&lt;br /&gt;
+
+Peter Edberg has been named a Unicode Fellow. He has worked on internationalization, text and language support at Apple since 1988. He has been Apple’s representative to the Consortium for many years, and has been actively involved since 2008 with the Unicode CLDR and ICU projects.&lt;br /&gt;&lt;br /&gt;
+
+Michel Suignard has been named a Unicode Fellow after serving as Secretary for the Unicode Consortium from 2007 to 2020. He worked for more than twenty-five years at Microsoft, where he held various positions in the development and sales divisions, many involving the development of the Unicode Standard. He is currently an independent consultant working on character encoding related matters, such as Internationalized Domain Names (IDN) and typography. Michel is the code chart editor for the Unicode Standard and is also the project editor of ISO/IEC 10646, which is the ISO standard aligned with the Unicode Standard.&lt;br /&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 140,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;https://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/07/the-unicode-consortium-welcomes-toral.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-4333583468818930968</guid><pubDate>Mon, 12 Jul 2021 16:30:00 +0000</pubDate><atom:updated>2021-07-12T09:30:04.210-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">AAC</category><category domain="http://www.blogger.com/atom/ns#">adopt-a-character</category><category domain="http://www.blogger.com/atom/ns#">emoji</category><category domain="http://www.blogger.com/atom/ns#">World Emoji Day</category><title>Adopt a Character to Celebrate World Emoji Day</title><description>&lt;img alt=&quot;World Emoji Day 2021 &quot; border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/annc-wed-2021-large.png&quot; style=&quot;float: right;&quot; width=&quot;400&quot; /&gt;This week, the Unicode Consortium is excited to celebrate the calendar emoji, 📅, 
+
+commonly displayed with July 17th. People are the power driving the popularity 
+
+of emoji through their innovative use of them to share joy, activities, sports, 
+
+individuality, and so much more.&lt;br&gt;
+
+&lt;br&gt;
+
+Celebrate a favorite emoji or character this week by
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adopting a 
+
+character&lt;/a&gt;! While many characters have been adopted since the program 
+
+launched in December 2015, hundreds of emoji haven’t been adopted by anyone at 
+
+any level, including fantastic ones like clapping hands 
+
+(👏twelfth👏most👏used👏emoji👏), check box (for all your to-do list dreams), 
+
+and the loudly crying emoji (I’m so proud of you! 😭). Imagine the possible 
+
+messages you could send with a gift adoption! For example:&lt;br&gt;
+
+&lt;ul&gt;
+
+	&lt;li&gt;Congratulations!!!!! 🥂&lt;/li&gt;
+
+	&lt;li&gt;Love You! 🖤&lt;/li&gt;
+
+	&lt;li&gt;Kisses 💋&lt;/li&gt;
+
+	&lt;li&gt;Did you see this👇🏽&lt;/li&gt;
+
+	&lt;li&gt;Yes, I adopted this face in your name 🥴&lt;/li&gt;
+
+	&lt;li&gt;My bad 😳&lt;/li&gt;
+
+	&lt;li&gt;Happy Birthday! To 100 more! 🎂&lt;/li&gt;
+
+&lt;/ul&gt;
+
+When you celebrate World Emoji Day this week by sponsoring your favorite emoji 
+
+or another character for yourself or as a gift, your donation helps the 
+
+non-profit Unicode Consortium support the world’s many languages and make the 
+
+digital world more inclusive. The Consortium is funded by membership fees and 
+
+donations from individuals, corporations, and other organizations. Your 
+
+donations help support the vital work of the Consortium, making modern software 
+
+and computing systems support the widest range of human languages. The 
+
+Consortium will use your donation to improve language support and to preserve 
+
+digital heritage. For more details, see
+
+&lt;a href=&quot;https://www.unicode.org/consortium/aboutdonations.html&quot;&gt;How Donations 
+
+are Used&lt;/a&gt;.
+
+</description><link>http://blog.unicode.org/2021/07/adopt-character-to-celebrate-world.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-5375627209030901934</guid><pubDate>Tue, 08 Jun 2021 21:42:00 +0000</pubDate><atom:updated>2021-06-08T14:42:05.542-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">14.0</category><category domain="http://www.blogger.com/atom/ns#">beta</category><category domain="http://www.blogger.com/atom/ns#">The Unicode Standard</category><title>Unicode 14.0 Beta Review</title><description>&lt;img alt=&quot;Vithkuqi Sample &quot; border=&quot;0&quot; src=&quot;http://www.unicode.org/announcements/u14-beta-annc-vithkuqi-sample.jpg&quot; style=&quot;float: right;&quot; width=&quot;214&quot; /&gt;The beta review period for Unicode 14.0 has started. The Unicode Standard is the foundation for all modern software and communications around the world, including all modern operating systems, browsers, laptops, and smart phones-plus the Internet and Web (URLs, HTML, XML, CSS, JSON, etc.). The Unicode Standard, its associated standards, and data form the foundation for CLDR and ICU releases. Thus it is important to ensure a smooth transition to each new version of the standard.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Unicode 14.0 includes a number of changes and 838 new characters. Some of the Unicode Standard Annexes have modifications for Unicode 14.0. Five new scripts have been added in Unicode 14.0. There are also additional emoji characters.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Please review the documentation, adjust your code, test the data files, and report errors and other issues to the Unicode Consortium by July 13, 2021. This will be a slightly shorter review period of only five weeks, so prompt feedback is appreciated. Feedback instructions are on the beta page.&lt;br/&gt;
+
+&lt;br/&gt;
+
+See &lt;a href=&quot;https://www.unicode.org/versions/beta-14.0.0.html&quot;&gt;https://www.unicode.org/versions/beta-14.0.0.html&lt;/a&gt; for more information about testing the 14.0.0 beta.&lt;br/&gt;
+
+&lt;br/&gt;
+
+See &lt;a href=&quot;https://www.unicode.org/versions/Unicode14.0.0/&quot;&gt;https://www.unicode.org/versions/Unicode14.0.0/&lt;/a&gt; for the current draft summary of Unicode 14.0.0.&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;h3&gt;About the Unicode Consortium&lt;/h3&gt;
+
+The Unicode Consortium is a non-profit organization founded to develop, extend and promote use of the Unicode Standard and related globalization standards.&lt;br/&gt;
+
+&lt;br/&gt;
+
+The membership of the consortium represents a broad spectrum of corporations and organizations, many in the computer and information processing industry. Members include: Adobe, Apple, Emojipedia, Facebook, Google, Government of Bangladesh, Government of India, Microsoft, Netflix, Sultanate of Oman MARA, Salesforce, SAP, Tamil Virtual Academy, The University of California (Berkeley), Yat Labs, plus well over a hundred Associate, Liaison, and Individual members. For a complete member list go to 
+
+&lt;a href=&quot;https://home.unicode.org/membership/members/&quot;&gt;https://home.unicode.org/membership/members/&lt;/a&gt;&lt;br/&gt;
+
+&lt;br/&gt;
+
+For more information, please contact the Unicode Consortium 
+
+&lt;a href=&quot;https://www.unicode.org/contacts.html&quot;&gt;https://www.unicode.org/contacts.html&lt;/a&gt;.
+
+&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 140,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;https://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/06/unicode-140-beta-review.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-2700161786344785714</guid><pubDate>Wed, 19 May 2021 19:57:00 +0000</pubDate><atom:updated>2021-05-19T12:57:43.996-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">conference</category><category domain="http://www.blogger.com/atom/ns#">IUC</category><category domain="http://www.blogger.com/atom/ns#">IUC 45</category><title>Program Announced for IUC 45!</title><description>&lt;a href=&quot;https://events.omg.org/iuc45/&quot;&gt;&lt;img alt=&quot;ICU 45 Banner &quot; border=&quot;0&quot; src=&quot;http://www.unicode.org/announcements/iuc-45-banner-full.png&quot; width=&quot;400&quot; /&gt;&lt;/a&gt;&lt;br/&gt;
+
+For over 30 years the Internationalization &amp;amp; Unicode® Conference (IUC) has been the preeminent event highlighting the latest innovations and best practices of global and multilingual software providers. As we navigate the new normal, we invite you to join us in Santa Clara, CA to promote your ideas and experiences working with natural languages, multicultural user interfaces, producing and supporting multinational and multilingual products, linguistic algorithms, applying internationalization across mobile and social media platforms, or advancements in relevant standards.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Trained, Tested, Trusted: Understand best practices in process and among teams reliably delivering high quality global products. Examine how developers build, test, and deploy great global products. Explore technologies for design, localization, multilingual testing, workflow management, and content management.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Expert practitioners and industry leaders present detailed recommendations for businesses looking to expand to new international markets and those seeking to improve time to market and cost-efficiency in supporting existing markets. Recent conferences have provided specific advice on designing software for European countries, Latin America, China, India, Japan, Korea, the Middle East, and emerging markets.&lt;br/&gt;
+
+ &lt;br/&gt;
+
+Track and Session Topics to Include:&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;table&gt;
+
+&lt;tr&gt;&lt;td&gt;Architecture&lt;/td&gt;&lt;td&gt;Case Studies&lt;/td&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td&gt;Fonts/Emojis&lt;/td&gt;&lt;td&gt;ICU/CLDR&lt;/td&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td&gt;Internationalization&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;td&gt;Language Sustainability&lt;/td&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td&gt;Localization&lt;/td&gt;&lt;td&gt;Scripts&lt;/td&gt;&lt;/tr&gt;
+
+&lt;/table&gt;
+
+&lt;br/&gt; 
+
+&lt;b&gt;&lt;a href=&quot;https://events.omg.org/iuc45/&quot;&gt;Register Today!&lt;/a&gt;&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+
+&lt;h3&gt;About The Unicode Consortium&lt;/h3&gt;
+
+The Unicode® Consortium is a non-profit organization founded to develop, extend and promote use of the Unicode Standard and related globalization standards.
+
+The membership of the consortium represents a broad spectrum of corporations and organizations, many in the computer and information processing industry. Members include: Adobe, Apple, Emojipedia, Facebook, Google, Government of Bangladesh, Government of India, Microsoft, Netflix, Sultanate of Oman MARA, Salesforce, SAP, Tamil Virtual Academy, The University of California (Berkeley), Yat Labs, plus well over a hundred Associate, Liaison, and Individual members. For a complete member list go to https://home.unicode.org/membership/members/
+
+For more information, please contact the 
+
+&lt;a href=&quot;https://go.omgprograms.org/e/658223/contacts-html/4hvqrq/283005991?h=Oj2eGlxYpYR7gx1lmU8Rxbrb1HmYWLHAiDyImxZoBI4&quot;&gt;Unicode Consortium&lt;/a&gt;.
+
+&lt;h3&gt;About the Event Producer&lt;/h3&gt;
+
+OMG® is the Event Producer for the Internationalization &amp;amp; Unicode Conferences. OMG is an international, open membership, not-for-profit computer industry standards consortium. OMG Task Forces develop enterprise integration standards for a wide range of technologies and an even wider range of industries. OMG&#39;s modeling standards, including the Unified Modeling Language™ (UML®) and Model Driven Architecture® (MDA®), enable powerful visual design, execution and maintenance of software and other processes, including IT Systems Modeling and Business Process Management. OMG&#39;s middleware standards and profiles are based on the Common Object Request Broker Architecture (CORBA®) and support a wide variety of industries. OMG has offices at 109 Highland Avenue, Needham, MA 02494 USA. This email may be considered to be commercial email, an advertisement or a solicitation.&lt;br/&gt;
+
+&lt;br/&gt;
+
+For more information about OMG, visit us online at 
+
+&lt;a href=&quot;https://go.omgprograms.org/e/658223/2021-05-19/4hvqrv/283005991?h=Oj2eGlxYpYR7gx1lmU8Rxbrb1HmYWLHAiDyImxZoBI4&quot;&gt;https://go.omgprograms.org/e/658223/2021-05-19/4hvqrv/283005991?h=Oj2eGlxYpYR7gx1lmU8Rxbrb1HmYWLHAiDyImxZoBI4&lt;/a&gt;.&lt;br/&gt;
+
+&lt;br/&gt;
+
+</description><link>http://blog.unicode.org/2021/05/program-announced-for-iuc-45.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-2689169728250881629</guid><pubDate>Thu, 06 May 2021 17:30:00 +0000</pubDate><atom:updated>2021-05-06T10:30:05.109-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">FFI</category><category domain="http://www.blogger.com/atom/ns#">ICU</category><category domain="http://www.blogger.com/atom/ns#">ICU4X</category><category domain="http://www.blogger.com/atom/ns#">Rust</category><category domain="http://www.blogger.com/atom/ns#">Unicode</category><title>ICU4X 0.2 Released</title><description>
+
+&lt;img alt=&quot;ICU Logo&quot; border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/ICU-logo.png&quot; style=&quot;float: right;&quot; width=&quot;120&quot; /&gt;Unicode® ICU4X 0.2 has just been released. This revision improves 
+
+completeness of the components in&lt;a href=&quot;https://github.com/unicode-org/icu4x/blob/cd1be469deab0c6c8c292124ca5cd9be5d5e41ba/docs/posts/20201015_ICU4X_Project_Announcement.md&quot;&gt; 
+
+ICU4X 0.1&lt;/a&gt; and introduces a number of lower-level utilities.&lt;br/&gt;
+
+&lt;br /&gt;
+
+ICU4X 0.2 adds minimal
+
+&lt;a href=&quot;https://docs.rs/icu/0.2.0/icu/decimal/index.html&quot;&gt;decimal formatting&lt;/a&gt;,
+
+&lt;a href=&quot;https://docs.rs/icu/0.2.0/icu/datetime/zoned_datetime/index.html&quot;&gt;time 
+
+zone formatting&lt;/a&gt;, datetime
+
+&lt;a href=&quot;https://docs.rs/icu/0.2.0/icu/datetime/options/components/index.html&quot;&gt;
+
+skeleton resolution&lt;/a&gt;, and
+
+&lt;a href=&quot;https://docs.rs/icu/0.2.0/icu/locale_canonicalizer/index.html&quot;&gt;locale 
+
+canonicalization&lt;/a&gt;.&lt;br/&gt;
+
+&lt;br/&gt;
+
+This release comes with new low-level utilities for
+
+&lt;a href=&quot;https://docs.rs/icu_decimal/0.2.0/icu_decimal/&quot;&gt;fixed decimal&lt;/a&gt; 
+
+operations, &lt;a href=&quot;https://docs.rs/icu_pattern/0.1.0/icu_pattern/&quot;&gt;ICU 
+
+patterns&lt;/a&gt;, and foundational components allowing use of ICU4X from other 
+
+ecosystems via
+
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Foreign_function_interface&quot;&gt;Foreign 
+
+Function Interfaces&lt;/a&gt;.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Additionally, the ICU4X team released a
+
+&lt;a href=&quot;https://github.com/unicode-org/icu4x/blob/main/docs/process/roadmap.md&quot;&gt;
+
+roadmap&lt;/a&gt; and a
+
+&lt;a href=&quot;https://github.com/unicode-org/icu4x/blob/main/docs/process/prd.md&quot;&gt;
+
+product requirements document&lt;/a&gt; setting sights on a stable 1.0 release.&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;a href=&quot;https://github.com/unicode-org/icu4x/blob/main/docs/process/charter.md&quot;&gt;
+
+ICU4X&lt;/a&gt; aims to develop a highly modular set of internationalization 
+
+components for resource-constrained environments.&lt;br/&gt;
+
+&lt;br /&gt;
+
+For details, please see&lt;a href=&quot;http://site.icu-project.org/download/69&quot;&gt;
+
+&lt;/a&gt;
+
+&lt;a href=&quot;https://github.com/unicode-org/icu4x/blob/main/docs/posts/20210427_ICU4X_02_Release.md&quot;&gt;
+
+changelog&lt;/a&gt;.&lt;br/&gt;
+
+&lt;br /&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 140,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;https://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/05/icu4x-02-released.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-8939868729230843684</guid><pubDate>Mon, 19 Apr 2021 21:05:00 +0000</pubDate><atom:updated>2021-04-19T14:05:26.913-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">art</category><category domain="http://www.blogger.com/atom/ns#">paperback</category><category domain="http://www.blogger.com/atom/ns#">POD</category><category domain="http://www.blogger.com/atom/ns#">unicode 14.0</category><title>Call for Unicode 14.0 Cover Design Art</title><description>&lt;a href=&quot;https://www.unicode.org/announcements/u14call/annc-v13-cover-huijun-shan.jpg&quot;&gt;&lt;img alt=&quot; [cover1] &quot; border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/u14call/annc-v13-cover-huijun-shan.jpg&quot; style=&quot;clear: right; float: right; margin-bottom: 1em; margin-left: 1em;&quot; width=&quot;170&quot; /&gt;&lt;/a&gt;The Unicode Consortium is inviting artists and designers 
+
+to submit cover design proposals for Version 14.0 of The 
+
+Unicode Standard, scheduled for publications in September 2021.&lt;br /&gt;
+
+&lt;br /&gt;
+
+The selected cover design will appear on the Unicode Standard 14.0
+
+web pages, in the print-on-demand publications, and in associated 
+
+promotional literature on the Unicode website. The artist whose design is selected for the cover will receive full credit in the colophon of the publication for which the art is used, and wherever else the design appears, and will receive $700. Two selected runner-up artists will receive $150 apiece.&lt;br /&gt;
+
+&lt;br /&gt;
+
+Please see the
+
+&lt;a href=&quot;http://www.unicode.org/announcements/u14call/index.html&quot;&gt;announcement 
+
+web page&lt;/a&gt; for requirements and more details.&lt;br&gt;
+
+</description><link>http://blog.unicode.org/2021/04/call-for-unicode-140-cover-design-art.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-4715636247795733141</guid><pubDate>Thu, 15 Apr 2021 17:00:00 +0000</pubDate><atom:updated>2021-04-15T10:00:59.110-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">emoji</category><category domain="http://www.blogger.com/atom/ns#">emoji 15.0</category><title>Now Accepting Unicode Emoji Proposals 🎉</title><description>
+
+&lt;a href=&quot;https://www.unicode.org/announcements/hands-waving-annc.png&quot; style=&quot;clear: right; float: right; margin-bottom: 1em; margin-left: 1em;&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/hands-waving-annc.png&quot; width=&quot;200px&quot; alt=&quot;[hands image] &quot;/&gt;&lt;/a&gt;When you last heard from the Unicode Emoji Subcommittee in April of 2020, the Unicode Consortium had just announced a 6-month delay to Unicode Version 14.0 due to COVID-19. Despite all of this :waves at the world: we&amp;rsquo;ve been busy.&lt;br/&gt;
+
+&lt;br/&gt;
+
+What’s new? Great question!&lt;br/&gt;
+
+&lt;br/&gt;
+
+During this pause in proposal submissions, the Unicode Emoji Subcommittee consulted with experts, developing a process that more completely reflects our criteria for inclusion in an effort to prioritize globally relevant emoji. We’ve looked for new ways to reconcile the rapid, transient nature of modern communication with the formal, methodical process required by a standards body like the Unicode Consortium.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Moving forward, the proposal review season will be open each year from 
+
+&lt;a href=&quot;https://www.unicode.org/L2/L2021/21014-esc-recs.pdf&quot;&gt;April 15-August 31&lt;/a&gt;. To submit a proposal, first read these 
+
+&lt;a href=&quot;https://www.unicode.org/emoji/proposals.html&quot;&gt;Guidelines&lt;/a&gt; and fill out this &lt;a href=&quot;https://docs.google.com/forms/d/e/1FAIpQLSftxUdbc539nHg9sysY2KrGKLaSbh4FN-H7s1o3maJlNsoDog/viewform&quot;&gt;form&lt;/a&gt;.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Thanks to all our Unicode Emoji Subcommittee volunteers who made these improvements possible. The world would be without emoji if it weren’t for you!&lt;br/&gt;
+
+&lt;br/&gt;
+
+Looking forward to 2021!&lt;br/&gt;
+
+The Unicode Emoji Subcommittee&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 140,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;https://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/04/now-accepting-unicode-emoji-proposals.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-6611588772264907849</guid><pubDate>Fri, 09 Apr 2021 16:44:00 +0000</pubDate><atom:updated>2021-04-09T09:44:30.931-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">CLDR</category><category domain="http://www.blogger.com/atom/ns#">CLDR 39</category><category domain="http://www.blogger.com/atom/ns#">ICU</category><category domain="http://www.blogger.com/atom/ns#">ICU 69</category><title>ICU 69 Released</title><description>
+
+&lt;img alt=&quot;ICU Logo&quot; border=&quot;0&quot; src=&quot;http://www.unicode.org/announcements/ICU-logo.png&quot; style=&quot;float: right;&quot; width=&quot;100&quot; /&gt;Unicode® ICU 69 has just been released. ICU 69 incorporates updates 
+
+to &lt;a href=&quot;http://cldr.unicode.org/index/downloads/cldr-39&quot;&gt;CLDR 39&lt;/a&gt; locale 
+
+data with its many additions and corrections. ICU 69 also includes significant 
+
+improvements to formatting for measurement units and numbers, as well as many 
+
+other bug fixes and enhancements.&lt;br/&gt;
+
+&lt;br/&gt;
+
+ICU is a software library &lt;a href=&quot;http://site.icu-project.org/#TOC-Who-Uses-ICU-&quot;&gt;widely used by products 
+
+and other libraries&lt;/a&gt; to support the world&#39;s languages, implementing both the 
+
+latest version of the Unicode Standard and of the Unicode locale data (CLDR).&lt;br/&gt;
+
+&lt;br/&gt;
+
+For details, please see
+
+&lt;a href=&quot;http://site.icu-project.org/download/69&quot;&gt;
+
+http://site.icu-project.org/download/69&lt;/a&gt;.&lt;br/&gt;
+
+&lt;br /&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 140,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;https://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/04/icu-69-released.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-3036003712093649809</guid><pubDate>Thu, 08 Apr 2021 21:39:00 +0000</pubDate><atom:updated>2021-04-08T14:47:37.632-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">CLDR</category><category domain="http://www.blogger.com/atom/ns#">CLDR 39</category><title>Unicode CLDR Version 39 now available</title><description>
+
+&lt;a href=&quot;https://www.unicode.org/announcements/cldr-39-annc-crane.png&quot; style=&quot;clear: right; float: right; margin-bottom: 1em; margin-left: 1em;&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/cldr-39-annc-crane.png&quot; alt=&quot;[crane image] &quot;/&gt;&lt;/a&gt;Unicode CLDR version 39 is now available. Unicode CLDR provides key building blocks for software supporting the world&amp;#39;s languages. CLDR data is used by all 
+
+&lt;a href=&quot;http://cldr.unicode.org/#TOC-Who-uses-CLDR-&quot;&gt;major software systems&lt;/a&gt; (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of different languages.&lt;br/&gt;
+
+&lt;br/&gt;
+
+The scope of the data changes is small in this cycle, because there was no data submission phase. Instead the focus was on modernizing the Survey Tool software and preparing for data submission in the next release (v40). The data fixes in the release were confined to some global changes that are difficult to do during a submission cycle, and various other fixes.&lt;br/&gt;
+
+&lt;br/&gt;
+
+However, there were some changes that could require implementations to adapt their code:&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;There was a major change in how Norwegian is handled, in order to align the way that the language identifiers 
+
+&lt;i&gt;no&lt;/i&gt;, &lt;i&gt;nb&lt;/i&gt;, and &lt;i&gt;nn&lt;/i&gt; are used.&lt;/li&gt;
+
+&lt;li&gt;The unit support from the last release was integrated into ICU, and some fixes resulting from that process were made to the measurement unit data.&lt;/li&gt;
+
+&lt;li&gt;Quite a number of fixes are made to the specification, to clarify text or fix problems in keyboards, measurement units, locale identifiers, and a few other areas.&lt;/li&gt;
+
+&lt;/ul&gt;
+
+To find out more, see the 
+
+&lt;a href=&quot;http://cldr.unicode.org/index/downloads/cldr-39&quot;&gt;CLDR 39 Release Note&lt;/a&gt;, which has details on accessing the data, charts of the changes, and necessary migration changes.&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 140,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;https://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/04/unicode-cldr-version-39-nowavailable.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-7391694133149490897</guid><pubDate>Thu, 25 Mar 2021 22:27:00 +0000</pubDate><atom:updated>2021-03-25T15:29:27.716-07:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">beta</category><category domain="http://www.blogger.com/atom/ns#">CLDR</category><category domain="http://www.blogger.com/atom/ns#">CLDR 39</category><title>CLDR v39 Beta 2</title><description>&lt;a href=&quot;https://www.unicode.org/announcements/large-beta-green.png&quot; style=&quot;clear: right; float: right; margin-bottom: 1em; margin-left: 1em;&quot;&gt;&lt;img alt=&quot;[beta image]&quot; border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/large-beta-green.png&quot; /&gt;&lt;/a&gt;The CLDR v39 beta has reached specification freeze, so no further changes will be made to the CLDR specification (aka LDML) except for showstoppers. For more details please see the 
+
+&lt;a href=&quot;http://cldr.unicode.org/index/downloads/cldr-39&quot;&gt;release page&lt;/a&gt;.&lt;br /&gt;
+
+&lt;br /&gt;
+
+The CLDR v39 release is planned for 2021-Apr-07.&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 140,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge]&quot; src=&quot;https://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/03/cldr-v39-beta-2.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-7056218577319548016</guid><pubDate>Thu, 11 Mar 2021 18:18:00 +0000</pubDate><atom:updated>2021-03-11T10:18:36.379-08:00</atom:updated><title>CLDR v39 Beta</title><description>&lt;a href=&quot;https://www.unicode.org/announcements/large-beta-green.png&quot; style=&quot;clear: right; float: right; margin-bottom: 1em; margin-left: 1em;&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/large-beta-green.png&quot; alt=&quot;[beta image] &quot;/&gt;&lt;/a&gt;CLDR v39 beta has reached data freeze, so no further changes will be made to the CLDR data except for showstoppers. For more details please see the &lt;a href=&quot;http://cldr.unicode.org/index/downloads/cldr-39&quot;&gt;release page&lt;/a&gt;.&lt;br/&gt;
+
+&lt;br/&gt;
+
+The planned date for the LDML specification freeze is March 24, 2021.&lt;br/&gt;&lt;br/&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 140,000 characters are available for &lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://www.unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;https://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/03/cldr-v39-beta.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-5823820280136730213</guid><pubDate>Wed, 03 Mar 2021 18:27:00 +0000</pubDate><atom:updated>2021-03-03T10:27:08.205-08:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">design</category><category domain="http://www.blogger.com/atom/ns#">emoji</category><title>Emoji — There&#39;s more than meets the 👁️</title><description>A lot more goes into selecting and designing an emoji than you might 
+
+expect. For some in-depth glimpses into the factors designers weigh when 
+
+expanding the set of emoji characters, check out these videos on 
+
+&lt;a href=&quot;https://www.youtube.com/channel/UCQNrSepJnz8BjWT7lrKH9Tw&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;our Unicode Consortium YouTube channel&lt;/a&gt;:&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;a href=&quot;https://www.youtube.com/watch?v=Nl8XFTFjo7o&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;When a Merperson is a Merman: Using Gender-Inclusive Design for 
+
+Codepoints Which Don&#39;t Specify Gender&lt;/a&gt;&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;a href=&quot;https://www.youtube.com/watch?v=kaucJce8hhE&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;Race is Not a Skin Tone. Gender is Not a Haircut.&lt;/a&gt;&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;a href=&quot;https://www.youtube.com/watch?v=jymXiQrSihs&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;Hanmoji: Analyzing Chinese Radicals to Determine Semantic Gaps in Emoji﻿&lt;/a&gt;
+
+&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 140,000 characters are available for &lt;a href=&quot;http://unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;http://unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;http://www.unicode.org/announcements/ynh-eye.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/03/emoji-theres-more-than-meets.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-8576065402572814419</guid><pubDate>Mon, 01 Mar 2021 19:10:00 +0000</pubDate><atom:updated>2021-03-01T11:10:42.703-08:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">alpha</category><category domain="http://www.blogger.com/atom/ns#">CLDR 39</category><category domain="http://www.blogger.com/atom/ns#">Norwegian</category><title>Unicode CLDR v39 Alpha available for testing</title><description>
+
+&lt;img alt=&quot;alpha image&quot; border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/large-alpha-green.png&quot; style=&quot;float: right;&quot; title=&quot;image&quot; width=&quot;150&quot; /&gt;
+
+The Unicode CLDR v39 Alpha is now available for testing. The alpha has already 
+
+been integrated into the development version of ICU. While the scope of the 
+
+changes is small in this cycle, there are some significant migration issues, so 
+
+we would especially appreciate feedback from non-ICU consumers of CLDR data. 
+
+Feedback can be filed at 
+
+&lt;a href=&quot;https://unicode-org.atlassian.net/projects/CLDR/&quot;&gt;CLDR Tickets&lt;/a&gt;.&lt;br /&gt;
+
+&lt;br /&gt;
+
+Unicode CLDR provides key building blocks for software supporting the world&#39;s 
+
+languages. CLDR data is used by all 
+
+&lt;a href=&quot;http://cldr.unicode.org/index#TOC-Who-uses-CLDR-&quot;&gt;
+
+major software systems&lt;/a&gt; 
+
+(including all mobile phones) for their software internationalization and 
+
+localization, adapting software to the conventions of different languages.&lt;br /&gt;
+
+&lt;br /&gt;
+
+CLDR v39 had no submission phase. Instead the focus was on modernizing the 
+
+Survey Tool software, preparing for data submission in the next release (v40). 
+
+The data fixes in the release were confined to some global changes that are too 
+
+difficult to do during a submission cycle, and various other fixes. There was a 
+
+major change in how Norwegian is handled, in order to align the way that the 
+
+locale identifiers &lt;i&gt;no&lt;/i&gt;, &lt;i&gt;nb&lt;/i&gt;, and &lt;i&gt;nn&lt;/i&gt; 
+
+are used. The CLDR Github repo is changing the name of “master” branch to “main” branch. 
+
+The unit support from the last release was integrated into ICU, and 
+
+some fixes resulting from that process were made to the measurement unit data. 
+
+Quite a number of fixes are made to the specification, to clarify text or fix 
+
+problems in keyboards, measurement units, locale identifiers, and a few other 
+
+areas.&lt;br /&gt;
+
+&lt;br /&gt;
+
+The public beta (data and specification) is planned for 2021-Mar-24, with the 
+
+release following on 2021-Apr-07.&lt;br /&gt;
+
+&lt;br /&gt;
+
+To find out more, see the draft 
+
+&lt;a href=&quot;http://cldr.unicode.org/index/downloads/cldr-39&quot;&gt;
+
+CLDR 39 Release Note&lt;/a&gt;, 
+
+which has information on accessing the date, reviewing charts of the changes, 
+
+and necessary migration changes.&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 140,000 characters are available for &lt;a href=&quot;http://unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;http://unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge]&quot; src=&quot;http://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/03/unicode-cldr-v39-alpha-available-for.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-3664203039088285847</guid><pubDate>Fri, 26 Feb 2021 17:22:00 +0000</pubDate><atom:updated>2021-02-26T09:22:58.677-08:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">alpha</category><category domain="http://www.blogger.com/atom/ns#">unicode 14.0</category><title>Unicode 14.0 Alpha Review</title><description>&lt;img alt=&quot;Vithkuqi chart image &quot; border=&quot;0&quot; src=&quot;https://www.unicode.org/announcements/u14-alpha-annc.jpg&quot; style=&quot;float: right;&quot; title=&quot;image &quot; width=&quot;200&quot; /&gt;The repertoire for Unicode 14.0 is now open for early review and comment. During alpha review the repertoire is reasonably mature and stable, but is not yet completely locked down. Discussion regarding whether certain characters should be removed from the repertoire for publication is welcome. Character names and code point assignments are reasonably firm, but suggestions for improvement may still be entertained.&lt;br/&gt;
+
+&lt;br/&gt;
+
+This early review is provided so that reviewers may consider the character repertoire issues prior to the start of beta review (currently scheduled to start in June, 2021). Once beta review begins, the repertoire, code points, and character names will all be locked down, and no longer be subject to changes.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Feedback for the alpha review should be reported under 
+
+&lt;a href=&quot;https://www.unicode.org/review/pri428/&quot;&gt;PRI #428&lt;/a&gt; 
+
+using the Unicode &lt;a href=&quot;https://corp.unicode.org/reporting.html&quot;&gt;contact form&lt;/a&gt; by April 12, 2021.&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 140,000 characters are available for &lt;a href=&quot;http://unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;http://unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;http://www.unicode.org/announcements/ynh-infinity.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/02/unicode-140-alpha-review.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item><item><guid isPermaLink="false">tag:blogger.com,1999:blog-5990361588879225255.post-9177216457007779312</guid><pubDate>Wed, 24 Feb 2021 18:25:00 +0000</pubDate><atom:updated>2021-02-24T10:32:45.936-08:00</atom:updated><category domain="http://www.blogger.com/atom/ns#">regex</category><category domain="http://www.blogger.com/atom/ns#">UTS #18</category><title>Enhancements to Unicode Regular Expressions</title><description>&lt;img alt=&quot;Regex image &quot; border=&quot;0&quot; src=&quot;http://www.unicode.org/announcements/pri404-uts18-blog-annc.png&quot; style=&quot;float: right;&quot; title=&quot;image &quot; width=&quot;200&quot; /&gt;A &lt;a href=&quot;https://www.unicode.org/reports/tr18/tr18-22.html&quot;&gt;
+
+Proposed Update UTS #18, Unicode Regular Expressions&lt;/a&gt; is now available for 
+
+review and feedback.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Regular expressions are a key tool in software development. Back in 
+
+2000, few regular expression engines supported Unicode, even at a basic level. 
+
+UTS #18 set out to raise the bar, describing how regular expression engines 
+
+could be adapted to deal with Unicode correctly and completely. Since that time, 
+
+major programming languages and libraries have adopted level 1 features 
+
+(supporting all Unicode literals, basic character properties, subtraction, 
+
+intersection, ...), and some also adopted some level 2 features (full character 
+
+properties, grapheme clusters, ...).&lt;br/&gt;
+
+&lt;br/&gt;
+
+A major enhancement to UTS #18 in 2020 focused on the addition of 
+
+Character Classes with strings. The initial impetus for this was to handle emoji 
+
+effectively in browsers, as most emoji consist of more than one code point. 
+
+Supporting strings directly in character classes frees up programs from having 
+
+to download large amounts of data or handle complicated syntax. Using a property 
+
+like RGI_Emoji allows a regular expression to match both individual codes such 
+
+as &quot;😁&quot; and multi-codepoint strings such as &quot;🇫🇷&quot;. This extension to strings is 
+
+also important for internationalization. For example, the alphabets used by many 
+
+languages contain multi-code-point strings, so this extension allows them to be 
+
+handled easily.&lt;br/&gt;
+
+&lt;br/&gt;
+
+Additional enhancements are in progress this year, based on working 
+
+with members of the ECMAScript committee, including more clarifications, better 
+
+guidance on implementation, and addressing some tricky issues dealing with 
+
+complementing (inverting) Character Classes. The end goal of all of these 
+
+enhancements in 2020 and 2021 is to significantly raise the level of Unicode 
+
+support in programming languages and libraries.&lt;br/&gt;
+
+&lt;br/&gt;
+
+For more information, see &lt;a href=&quot;https://www.unicode.org/review/pri427/&quot;&gt;
+
+https://www.unicode.org/review/pri427/&lt;/a&gt;.&lt;br/&gt;
+
+&lt;br/&gt;
+
+&lt;hr /&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;i&gt;Over 140,000 characters are available for &lt;a href=&quot;http://unicode.org/consortium/adopt-a-character.html&quot;&gt;adoption&lt;/a&gt; 
+
+to help the Unicode Consortium’s work on digitally disadvantaged languages&lt;/i&gt;&lt;br /&gt;
+
+&lt;br /&gt;
+
+&lt;a href=&quot;https://unicode.org/consortium/adopt-a-character.html&quot;&gt;&lt;img alt=&quot;[badge] &quot; src=&quot;https://www.unicode.org/announcements/ynh-1fab4-potted-plant.png&quot; width=&quot;180&quot; /&gt;&lt;/a&gt;
+
+&lt;/div&gt;
+
+</description><link>http://blog.unicode.org/2021/02/enhancements-to-unicode-regular.html</link><author>noreply@blogger.com (Unicode, Inc.)</author></item></channel></rss> pick one!`
+    
+    for i, match := range re.FindAllString(str, -1) {
+        fmt.Println(match, "found at index", i)
+    }
+}
+
+
+แบบฟอร์ม:
+
+name: Go
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.17
+
+    - name: Build
+      run: go build -v ./...
+
+    - name: Test
+      run: go test -v ./...
